@@ -1,0 +1,2 @@
+runtime! vimrcAutoload/*.vim
+

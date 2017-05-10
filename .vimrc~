@@ -1,0 +1,2 @@
+runtime! vimrcAutoload/[^(nerdTree_old.vim.orig\|vundleManage.vim.orig)].vim
+

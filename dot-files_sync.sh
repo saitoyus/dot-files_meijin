@@ -8,7 +8,8 @@ ln -sf ~/dot-files_meijin/.bashrc ~/.bashrc
 filename=~/dot-files_meijin/.vimignore
 cat ${filename} | while read line
 do
-  rm ~/dot-files_meijin/.vim/vimrcAutoload/${line}
+    mv ~/dot-files_meijin/.vim/vimrcAutoload/${line} ~/dot-files_meijin/.vim/vimrcAutoload/${line}.orig
 done
 
 source ~/.bashrc
+

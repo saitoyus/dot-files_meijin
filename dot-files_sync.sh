@@ -6,6 +6,10 @@ ln -sf ~/dot-files_meijin/.tmux.conf ~/.tmux.conf
 ln -sf ~/dot-files_meijin/.bashrc ~/.bashrc
 ln -sf ~/dot-files_meijin/.zshrc ~/.zshrc
 
+for name in ~/dot-files_meijin/.vim/vimrcAutoload/*.orig; do
+    mv $name ${name%.orig}
+done
+
 filename=~/dot-files_meijin/.vimignore
 cat ${filename} | while read line
 do

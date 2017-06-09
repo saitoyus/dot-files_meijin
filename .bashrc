@@ -21,5 +21,7 @@ alias lgn="git log --oneline"
 
 alias vi='vim'
 alias ll='ls -al'
+alias vil='vim -c'
+alias bashr='source ~/.bashrc'
 
 function gg(){ grep -rn $@ *; }

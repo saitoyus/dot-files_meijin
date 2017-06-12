@@ -198,9 +198,21 @@ case ${OSTYPE} in
         ;;
 esac
 
+autoload colors
+colors
+
+PROMPT="
+%{${fg[yellow]}%}%~%{${reset_color}%}
+[%n]$ "
+
+PROMPT2='[%n]> ' 
+export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
+export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
+zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
+
 # vim:set ft=zsh:
 
-PROMPT='[%n@%m]$ '
+# PROMPT='[%n@%m]$ '
 RPROMPT='%d %*'
 
 # .bashrc

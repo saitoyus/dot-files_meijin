@@ -21,8 +21,13 @@ alias lg="git log"
 alias lgn="git log --oneline"
 
 alias vi='vim'
-alias ll='ls -al'
+alias ls='ls -G'
+alias ll='ls -Gal'
 alias vil='vim -c'
 alias bashr='source ~/.bashrc'
 
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
 function gg(){ grep -rn $@ *; }
+
+zsh

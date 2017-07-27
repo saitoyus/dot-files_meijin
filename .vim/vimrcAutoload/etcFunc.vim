@@ -1,3 +1,5 @@
+autocmd BufWritePre * :%s/\s\+$//ge
+
 if &term =~ "xterm"
     let &t_ti .= "\e[?2004h"
     let &t_te .= "\e[?2004l"

@@ -1,5 +1,6 @@
 "keymap settings
-inoremap jk  <Esc>
+inoremap jk  <Esc>l:w<CR>
+inoremap jj  <Esc>l
 
 nnoremap ; :
 nnoremap : ;

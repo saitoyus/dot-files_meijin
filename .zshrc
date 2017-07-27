@@ -236,3 +236,6 @@ alias ll='ls -al'
 
 function gg(){ grep -rn $@ *; }
 
+export PATH=$PATH:$HOME/usr/local/bin
+
+tmux -2 a

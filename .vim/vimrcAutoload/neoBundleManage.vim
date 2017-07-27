@@ -11,7 +11,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'evidens/vim-twig'
+NeoBundle 'nelsyeung/twig.vim'
+" NeoBundle 'evidens/vim-twig'
 
 NeoBundle 'itspriddle/vim-jquery'
 

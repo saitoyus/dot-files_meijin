@@ -60,7 +60,6 @@ SAVEHIST=1000000
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
-
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
@@ -198,9 +197,21 @@ case ${OSTYPE} in
         ;;
 esac
 
+autoload colors
+colors
+
+PROMPT="
+%{${fg[yellow]}%}%~%{${reset_color}%}
+[%n@%m]$ "
+
+PROMPT2='[%n]> '
+export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
+export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
+zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
+
 # vim:set ft=zsh:
 
-PROMPT='[%n@%m]$ '
+# PROMPT='[%n@%m]$ '
 RPROMPT='%d %*'
 
 # .bashrc
@@ -222,5 +233,10 @@ alias lgn="git log --oneline"
 alias vi='vim'
 alias ll='ls -al'
 
+alias ff='find . | grep -i'
+
 function gg(){ grep -rn $@ *; }
 
+export PATH=$PATH:$HOME/usr/local/bin
+
+tmux -2 a

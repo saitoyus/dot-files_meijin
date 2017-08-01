@@ -1,3 +1,5 @@
+autocmd BufWritePre * :%s/\s\+$//ge
+
 if &term =~ "xterm"
     let &t_ti .= "\e[?2004h"
     let &t_te .= "\e[?2004l"
@@ -69,4 +71,9 @@ nnoremap <silent>cp :CopyPath<CR>
 nnoremap <silent>cfp :CopyFullPath<CR>
 nnoremap <silent>cf :CopyFileName<CR>
 
-
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+augroup END

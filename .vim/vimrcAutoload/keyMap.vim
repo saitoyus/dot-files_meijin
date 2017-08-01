@@ -4,6 +4,7 @@ inoremap jj  <Esc>l:w<CR>
 
 nnoremap setp :set paste<CR>
 nnoremap setnp :set nopaste<CR>
+inoremap jj  <Esc>l
 
 nnoremap ; :
 nnoremap : ;

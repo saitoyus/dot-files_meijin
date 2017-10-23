@@ -44,7 +44,7 @@ set smartindent
 " オンのとき、コマンドライン補完が拡張モードで行われる。（有効:wildmenu/無効:nowildmenu）
 set wildmenu
 
-set mouse=n
+set mouse=a
 set backspace=2
 
 " 検索がファイル末尾まで進んだら、ファイル先頭から再び検索する。（有効:wrapscan/無効:nowrapscan）

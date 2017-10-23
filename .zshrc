@@ -205,7 +205,7 @@ PROMPT="
 %{${fg[yellow]}%}%~%{${reset_color}%}
 [%n]$ "
 
-PROMPT2='[%n]> ' 
+PROMPT2='[%n]> '
 export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
 export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
@@ -236,3 +236,7 @@ alias ll='ls -al'
 
 function gg(){ grep -rn $@ *; }
 
+export PATH=$PATH:$HOME/usr/local/bin
+export CHATWORKAPI=3e86624858879192b101808b1c25cb8e
+
+tmux -2 a

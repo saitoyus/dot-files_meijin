@@ -16,5 +16,4 @@ do
     mv ~/dot-files_meijin/.vim/vimrcAutoload/${line} ~/dot-files_meijin/.vim/vimrcAutoload/${line}.orig
 done
 
-source ~/.bashrc
-
+source ~/.zshrc

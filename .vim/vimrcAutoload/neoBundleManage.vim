@@ -70,10 +70,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 imap <C-j>     <Plug>(neosnippet_expand_or_jump)
 smap <C-j>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-j>     <Plug>(neosnippet_expand_target)
-<<<<<<< HEAD
 
-=======
->>>>>>> ba3d508a10a1c70dcf3bccca40138cfc673395de
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable() <Bar><Bar> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"

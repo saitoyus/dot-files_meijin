@@ -229,6 +229,7 @@ alias push="git push origin"
 alias pull="git pull origin"
 alias lg="git log"
 alias lgn="git log --oneline"
+alias vim='/home/saitoyus/vim/src/vim'
 
 alias vi='vim'
 alias ll='ls -al'
@@ -238,5 +239,6 @@ alias ff='find . | grep -i'
 function gg(){ grep -rn $@ *; }
 
 export PATH=$PATH:$HOME/usr/local/bin
+export VIMRUNTIME=/home/saitoyus/vim/runtime
 
 tmux -2 a

@@ -35,6 +35,7 @@ export HISTFILESIZE=100000
 export HISTCONTROL=ignoredups
 export HISTIGNORE=?:??:exit
 export HISTFILE=~/.bash_history/.bash_history-$OSTYPE-`date +%Y%m%d`
+export PATH=$PATH:$HOME/home/saitoyus/local
 
 EDITOR=vim
-zsh
+${HOME}/local/bin/zsh

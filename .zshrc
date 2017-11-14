@@ -1,45 +1,14 @@
-#
-# .zshrc is sourced in interactive shells.
-# It should contain commands to set up aliases,
-# functions, options, key bindings, etc.
-#
-
 autoload -U compinit
 compinit
 
-#allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
-## keep background processes at full speed
-#setopt NOBGNICE
-## restart running processes on exit
-#setopt HUP
-
-## history
-#setopt APPEND_HISTORY
-## for sharing history between zsh processes
-#setopt INC_APPEND_HISTORY
-#setopt SHARE_HISTORY
-
-## never ever beep ever
-#setopt NO_BEEP
-
-## automatically decide when to page a list of completions
-#LISTMAX=0
-
-## disable mail checking
-#MAILCHECK=0
-
-# autoload -U colors
-#colors
 # 少し凝った zshrc
 # License : MIT
 # http://mollifier.mit-license.org/
-
 ########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
-
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -181,8 +150,6 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-
-
 ########################################
 # OS 別の設定
 case ${OSTYPE} in
@@ -221,6 +188,7 @@ alias br="git branch"
 alias st="git status"
 alias ad="git add ."
 alias cc="git commit"
+alias cm='git commit -m'
 alias dif="git diff"
 function difn(){ git diff $@ --name-only; }
 alias ck="git checkout"
@@ -229,17 +197,22 @@ alias push="git push origin"
 alias pull="git pull origin"
 alias lg="git log"
 alias lgn="git log --oneline"
-alias vim='/home/saitoyus/vim/src/vim'
-
 alias vi='vim'
 alias ll='ls -al'
-
-alias ff='find . | grep -i'
-
+alias fs='find . | grep -i'
 function gg(){ grep -rn $@ *; }
 
 export PATH=$PATH:$HOME/usr/local/bin
-export VIMRUNTIME=/home/saitoyus/vim/runtime
+
+hostname=`hostname`
+cat './.hostname_for_local_vim' | while read line
+do
+    if [ x$hostname = x$line ]; then
+        alias vim='/home/saitoyus/vim/src/vim'
+        export VIMRUNTIME=/home/saitoyus/vim/runtime
+        echo 'setting for local vim'
+    fi
+done
 
 #cdとlsの省略
 setopt auto_cd

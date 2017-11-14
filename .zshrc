@@ -60,7 +60,6 @@ SAVEHIST=1000000
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
-
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
@@ -203,7 +202,7 @@ colors
 
 PROMPT="
 %{${fg[yellow]}%}%~%{${reset_color}%}
-[%n]$ "
+[%n@%m]$ "
 
 PROMPT2='[%n]> '
 export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
@@ -233,6 +232,8 @@ alias lgn="git log --oneline"
 
 alias vi='vim'
 alias ll='ls -al'
+
+alias ff='find . | grep -i'
 
 function gg(){ grep -rn $@ *; }
 

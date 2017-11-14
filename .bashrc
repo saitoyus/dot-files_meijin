@@ -1,4 +1,5 @@
 # .bashrc
+zsh
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
@@ -29,4 +30,11 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 
 function gg(){ grep -rn $@ *; }
 
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+export HISTCONTROL=ignoredups
+export HISTIGNORE=?:??:exit
+export HISTFILE=~/.bash_history/.bash_history-$OSTYPE-`date +%Y%m%d`
+
+EDITOR=vim
 zsh

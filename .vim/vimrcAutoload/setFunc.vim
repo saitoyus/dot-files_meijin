@@ -1,7 +1,9 @@
 "function settings
 autocmd ColorScheme * highlight LineNr ctermfg=250 ctermbg=239
-colorscheme Tomorrow-Night-Bright 
+colorscheme Tomorrow-Night-Bright
 set t_Co=256
+" highlight statusline term=NONE cterm=NONE guifg=red ctermfg=yellow ctermbg=red
+highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none
 
 "" ステータスラインを常に表示（編集中のファイル名が常に確認できるようになる）
 set laststatus=2
@@ -11,6 +13,7 @@ set showcmd
 
 "" ステータスラインに文字コードと改行文字を表示する
 set statusline=%<%F\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+" set statusline=%{expand('%:p:t')}\ %<[%{expand('%:p:h')}]%=\ %m%r%y%w[%{&fenc!=''?&fenc:&enc}][%{&ff}][%3l,%3c,%3p]
 
 set incsearch
 set hlsearch
@@ -44,7 +47,7 @@ set smartindent
 " オンのとき、コマンドライン補完が拡張モードで行われる。（有効:wildmenu/無効:nowildmenu）
 set wildmenu
 
-set mouse=a
+set mouse=
 set backspace=2
 
 " 検索がファイル末尾まで進んだら、ファイル先頭から再び検索する。（有効:wrapscan/無効:nowrapscan）

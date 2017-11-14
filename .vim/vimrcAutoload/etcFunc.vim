@@ -8,7 +8,7 @@ if &term =~ "xterm"
         set paste
         return a:ret
     endfunction
- 
+
     noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
     inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
     cnoremap <special> <Esc>[200~ <nop>
@@ -22,6 +22,7 @@ endif
 " # ~/.vimrc
 set clipboard&
 set clipboard+=unnamed
+set shell=/bin/bash
 " set clipboard^=unnamedplus
 
 " function! CopyPath()

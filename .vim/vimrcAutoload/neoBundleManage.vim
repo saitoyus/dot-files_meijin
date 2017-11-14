@@ -5,7 +5,7 @@ filetype plugin indent off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#begin(expand('~/.vim/bundle'))
-endif 
+endif
 
 " NeoBundle 'scrooloose/syntastic'
 " let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
@@ -17,6 +17,9 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'nelsyeung/twig.vim'
 " NeoBundle 'evidens/vim-twig'
+NeoBundle 'Lokaltog/vim-powerline'
+
+NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'itspriddle/vim-jquery'
 
@@ -65,7 +68,7 @@ NeoBundle 'Shougo/neosnippet-snippets'
 imap <C-j>     <Plug>(neosnippet_expand_or_jump)
 smap <C-j>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-j>     <Plug>(neosnippet_expand_target)
- 
+
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable() <Bar><Bar> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
@@ -73,7 +76,7 @@ imap <expr><TAB> neosnippet#expandable() <Bar><Bar> neosnippet#jumpable() ?
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
- 
+
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
@@ -84,16 +87,16 @@ NeoBundle 'Shougo/neomru.vim'
 "unite prefix key.
 nnoremap [unite] <Nop>
 nmap <Space>f [unite]
- 
+
 "unite general settings
 "インサートモードで開始
 let g:unite_enable_start_insert = 1
 "最近開いたファイル履歴の保存数
 let g:unite_source_file_mru_limit = 50
- 
+
 "file_mruの表示フォーマットを指定。空にすると表示スピードが高速化される
 let g:unite_source_file_mru_filename_format = ''
- 
+
 "現在開いているファイルのディレクトリ下のファイル一覧。
 "開いていない場合はカレントディレクトリ
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>

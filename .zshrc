@@ -237,6 +237,46 @@ alias ll='ls -al'
 function gg(){ grep -rn $@ *; }
 
 export PATH=$PATH:$HOME/usr/local/bin
-export CHATWORKAPI=3e86624858879192b101808b1c25cb8e
+
+#cdとlsの省略
+setopt auto_cd
+function chpwd() { ll }
+
+#コマンドをtypoしたときに聞きなおしてくれる(お花さん推奨)
+setopt correct
+
+#lsした時表示を詰めてくれる
+setopt list_packed
+
+#保管色付け(多分機能してないのでitermの設定を上書き)
+#http://yuk.hatenablog.com/entry/2014/09/23/072648
+zstyle ':completion:*' list-colors 'di=45' 'ln=45' 'so=45' 'ex=45' 'bd=45;45' 'cd=45;45'
+
+## Goolge Search by Google Chrome
+## terminalからググったりqiita検索できる
+google() {
+    local str opt
+    if [ $# != 0 ]; then
+        for i in $*; do
+            # $strが空じゃない場合、検索ワードを+記号でつなぐ(and検索)
+            str="$str${str:++}$i"
+        done
+        opt='search?num=100'
+        opt="${opt}&q=${str}"
+    fi
+    open -a Google\ Chrome http://www.google.co.jp/$opt
+}
+qiita() {
+    local str opt
+    if [ $# != 0 ]; then
+        for i in $*; do
+            # $strが空じゃない場合、検索ワードを+記号でつなぐ(and検索)
+            str="$str${str:++}$i"
+        done
+        opt='search?num=100'
+        opt="${opt}&q=${str}"
+    fi
+    open -a Google\ Chrome http://qiita.com/$opt
+}
 
 tmux -2 a

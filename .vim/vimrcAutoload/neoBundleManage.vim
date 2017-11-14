@@ -7,10 +7,6 @@ if has('vim_starting')
   call neobundle#begin(expand('~/.vim/bundle'))
 endif
 
-" NeoBundle 'scrooloose/syntastic'
-" let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-" let g:syntastic_ruby_checkers=['rubocop', 'mri']
-
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/unite.vim'
@@ -22,6 +18,12 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'itspriddle/vim-jquery'
+
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'othree/yajs.vim'
+
+autocmd BufRead,BufNewFile *.js setfiletype javascript
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
 "--------------------------------------------------------
 "" neocomplcache
@@ -68,7 +70,10 @@ NeoBundle 'Shougo/neosnippet-snippets'
 imap <C-j>     <Plug>(neosnippet_expand_or_jump)
 smap <C-j>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-j>     <Plug>(neosnippet_expand_target)
+<<<<<<< HEAD
 
+=======
+>>>>>>> ba3d508a10a1c70dcf3bccca40138cfc673395de
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable() <Bar><Bar> neosnippet#jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"

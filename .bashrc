@@ -30,4 +30,12 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 
 function gg(){ grep -rn $@ *; }
 
-zsh
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+export HISTCONTROL=ignoredups
+export HISTIGNORE=?:??:exit
+export HISTFILE=~/.bash_history/.bash_history-$OSTYPE-`date +%Y%m%d`
+export PATH=$PATH:$HOME/home/saitoyus/local
+
+EDITOR=vim
+${HOME}/local/bin/zsh

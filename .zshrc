@@ -1,45 +1,14 @@
-#
-# .zshrc is sourced in interactive shells.
-# It should contain commands to set up aliases,
-# functions, options, key bindings, etc.
-#
-
 autoload -U compinit
 compinit
 
-#allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
-## keep background processes at full speed
-#setopt NOBGNICE
-## restart running processes on exit
-#setopt HUP
-
-## history
-#setopt APPEND_HISTORY
-## for sharing history between zsh processes
-#setopt INC_APPEND_HISTORY
-#setopt SHARE_HISTORY
-
-## never ever beep ever
-#setopt NO_BEEP
-
-## automatically decide when to page a list of completions
-#LISTMAX=0
-
-## disable mail checking
-#MAILCHECK=0
-
-# autoload -U colors
-#colors
 # 少し凝った zshrc
 # License : MIT
 # http://mollifier.mit-license.org/
-
 ########################################
 # 環境変数
 export LANG=ja_JP.UTF-8
-
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -181,8 +150,6 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-
-
 ########################################
 # OS 別の設定
 case ${OSTYPE} in
@@ -221,6 +188,7 @@ alias br="git branch"
 alias st="git status"
 alias ad="git add ."
 alias cc="git commit"
+alias cm='git commit -m'
 alias dif="git diff"
 function difn(){ git diff $@ --name-only; }
 alias ck="git checkout"
@@ -229,14 +197,62 @@ alias push="git push origin"
 alias pull="git pull origin"
 alias lg="git log"
 alias lgn="git log --oneline"
-
 alias vi='vim'
 alias ll='ls -al'
-
-alias ff='find . | grep -i'
-
+alias fs='find . | grep -i'
 function gg(){ grep -rn $@ *; }
 
 export PATH=$PATH:$HOME/usr/local/bin
+
+hostname=`hostname`
+cat './.hostname_for_local_vim' | while read line
+do
+    if [ x$hostname = x$line ]; then
+        alias vim='/home/saitoyus/vim/src/vim'
+        export VIMRUNTIME=/home/saitoyus/vim/runtime
+        echo 'setting for local vim'
+    fi
+done
+
+#cdとlsの省略
+setopt auto_cd
+function chpwd() { ll }
+
+#コマンドをtypoしたときに聞きなおしてくれる(お花さん推奨)
+setopt correct
+
+#lsした時表示を詰めてくれる
+setopt list_packed
+
+#保管色付け(多分機能してないのでitermの設定を上書き)
+#http://yuk.hatenablog.com/entry/2014/09/23/072648
+zstyle ':completion:*' list-colors 'di=45' 'ln=45' 'so=45' 'ex=45' 'bd=45;45' 'cd=45;45'
+
+## Goolge Search by Google Chrome
+## terminalからググったりqiita検索できる
+google() {
+    local str opt
+    if [ $# != 0 ]; then
+        for i in $*; do
+            # $strが空じゃない場合、検索ワードを+記号でつなぐ(and検索)
+            str="$str${str:++}$i"
+        done
+        opt='search?num=100'
+        opt="${opt}&q=${str}"
+    fi
+    open -a Google\ Chrome http://www.google.co.jp/$opt
+}
+qiita() {
+    local str opt
+    if [ $# != 0 ]; then
+        for i in $*; do
+            # $strが空じゃない場合、検索ワードを+記号でつなぐ(and検索)
+            str="$str${str:++}$i"
+        done
+        opt='search?num=100'
+        opt="${opt}&q=${str}"
+    fi
+    open -a Google\ Chrome http://qiita.com/$opt
+}
 
 tmux -2 a

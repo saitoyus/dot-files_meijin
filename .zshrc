@@ -190,7 +190,9 @@ alias ad="git add ."
 alias cc="git commit"
 alias cm='git commit -m'
 alias dif="git diff"
+
 function difn(){ git diff $@ --name-only; }
+
 alias ck="git checkout"
 alias ckb="git checkout -b"
 alias push="git push origin"
@@ -200,7 +202,22 @@ alias lgn="git log --oneline"
 alias vi='vim'
 alias ll='ls -al'
 alias fs='find . | grep -i'
-function gg(){ grep -rn $@ *; }
+
+function svim() {
+    if [ "$1" = "" ]
+    then
+        echo 'no arguments';
+        return;
+    fi
+    local dir='*';
+    if [ "$2" != "" ]
+    then
+        dir="$2";
+    fi
+    vim -p `grep -lr $1 $2 | perl -pe 's/\n/ /g'`;
+}
+
+function gg(){ grep -rn $1 *; }
 
 export PATH=$PATH:$HOME/usr/local/bin
 
